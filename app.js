@@ -5,7 +5,7 @@ import {db,getDept,getRole,getEmployee,addEmployee,addRole,addDept,putEmployee} 
 
 
 
-
+// prompts the user with the menu options 
 const promptUser = inputData =>{
   inquirer.prompt([
     {
@@ -25,6 +25,7 @@ const promptUser = inputData =>{
     ],
     default:0
     }
+    //takes value chosen to pick what function to call
   ]).then((value)=>{
     switch(value.firstChoice){
       case'View Departments':
@@ -99,7 +100,7 @@ const repeatMenu = repeatVal=>{
     
     );
 }
-
+//function to get user input for department then calls query file function to make
 const promptDept = deptData =>{
   return inquirer.prompt([
     {type: 'input',
@@ -110,7 +111,7 @@ const promptDept = deptData =>{
   ]).then((deptData)=>
   addDept(deptData.deptname)).then((val)=>repeatMenu());
 }
-
+// gets user input for new role
 const promptRole = roleData =>{
   return inquirer.prompt([
     {type: 'input',
@@ -133,7 +134,7 @@ const promptRole = roleData =>{
   addRole(roleData.name,roleData.salary,roleData.dept)).then((val)=>repeatMenu());
   
 }
-
+// gets user input for new employee
 const promptEmployee = empData =>{
   return inquirer.prompt([
     {type: 'input',
@@ -160,7 +161,7 @@ const promptEmployee = empData =>{
   addEmployee(empData.firstName,empData.lastName,empData.role,empData.manager)).then((val)=>repeatMenu());
   
 }
-
+// gets user info for update
 const promptUpdate = param =>{
   return inquirer.prompt([
     {
@@ -180,36 +181,5 @@ const promptUpdate = param =>{
 }
 
 promptUser();
-/*
-promptUser.then((value)=>{
-switch(value.firstChoice){
-  case'View Departments':
-  getDept();
-  break;
-  case 'View Roles':
-  getRole();
-  break;
-  case'View Employees':
-  getEmployee();
-  break;
-  case 'Add Department':
-  promptDept();
-  break;
-  case 'Add Role':
-  promptRole();
-  break;
-  case 'Add Employee':
-  promptEmployee();
-  break;
-  case 'Update Employee Role':
-  promptUpdate();
-  break;
 
-
-}
-}
-
-
-)
-*/
 
