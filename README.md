@@ -5,4 +5,4 @@ A command line interface for tracking departments, roles, and employees.
 
 ## By Dawson Tilley
 
-[Youtube Video Walkthrough](https://www.youtube.com/watch?v=-0s1djcQDYE&ab_channel=DawsonT)
+[Youtube Video Walkthrough](https://youtu.be/aziWpOz6gdY)
