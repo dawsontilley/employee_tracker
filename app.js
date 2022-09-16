@@ -9,7 +9,7 @@ import {db,getDept,getRole,getEmployee,addEmployee,addRole,addDept,putEmployee} 
 const promptUser = inputData =>{
   inquirer.prompt([
     {
-    type: 'list',
+    type: 'rawlist',
     name:'firstChoice',
     message:'Select one of the following options:',
     choices:[
@@ -75,7 +75,7 @@ const promptUser = inputData =>{
 }
 const repeatMenu = repeatVal=>{
   inquirer.prompt([
-    {type: 'list',
+    {type: 'rawlist',
     name:'redo',
     message:'Would you like to see the options again?',
     choices:['yes','no'],
@@ -109,7 +109,7 @@ const promptDept = deptData =>{
 
     }
   ]).then((deptData)=>
-  addDept(deptData.deptname)).then((val)=>repeatMenu());
+  addDept(deptData.deptname));
 }
 // gets user input for new role
 const promptRole = roleData =>{
@@ -131,7 +131,7 @@ const promptRole = roleData =>{
   }
 
   ]).then((roleData)=>
-  addRole(roleData.name,roleData.salary,roleData.dept)).then((val)=>repeatMenu());
+  addRole(roleData.name,roleData.salary,roleData.dept));
   
 }
 // gets user input for new employee
@@ -158,7 +158,7 @@ const promptEmployee = empData =>{
   }
 
   ]).then((empData)=>
-  addEmployee(empData.firstName,empData.lastName,empData.role,empData.manager)).then((val)=>repeatMenu());
+  addEmployee(empData.firstName,empData.lastName,empData.role,empData.manager));
   
 }
 // gets user info for update
@@ -175,7 +175,7 @@ const promptUpdate = param =>{
     }
 
   ]).then((roleUpdate)=>
-  putEmployee(roleUpdate.emp_id,roleUpdate.nRole)).then((val)=>repeatMenu());
+  putEmployee(roleUpdate.emp_id,roleUpdate.nRole));
   
 
 }
